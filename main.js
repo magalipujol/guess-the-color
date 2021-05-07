@@ -1,6 +1,7 @@
 var buttons = document.getElementsByClassName("color-btn");
 var resetBtn = document.getElementById("reset-btn");
 var colorTag = document.getElementById("color-value");
+var answerMessage = document.getElementById('answer');
 
 console.log(buttons)
 
@@ -23,8 +24,14 @@ function getRandomNumberUpToANumber(biggest) {
 }
 
 colorTag.textContent = colorValues[getRandomNumberUpToANumber(colorValues.length - 1)]
-
-
+//TODO
+buttons.addEventListener('click', function(){
+    if (this === colorTag) {
+        answerMessage.innerHTML = "Correct!";
+    } else {
+        answerMessage.innerHTML = "Wrong answer! Guess again!";
+    }
+});
 
 /*buttons.addEventListener("click", function () {
   document.body.style.backgroundColor = createRGBColorFromValues(
